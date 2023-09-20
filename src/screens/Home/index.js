@@ -9,6 +9,7 @@ import {
 import Slider from "@react-native-community/slider";
 import { useState } from "react";
 import ModalPassword from "../../components/Modal";
+import { MotiView } from "moti";
 
 const charset =
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -31,14 +32,19 @@ export const Home = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <MotiView
+      style={styles.container}
+      from={{ opacity: 0, translateX: -50, translateY: -50 }}
+      animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+      transition={{ type: "timing", delay: 300, duration: 900 }}
+    >
       <Image source={require("../../assets/logo.png")} style={styles.logo} />
 
       <Text style={styles.title}>{size} Caracteres</Text>
 
       <View style={styles.area}>
         <Slider
-          style={{ minHeight: 50 }}
+          style={{ minHeight: 60 }}
           minimumValue={6}
           maximumValue={20}
           maximumTrackTintColor={"#ff0000"}
@@ -59,7 +65,7 @@ export const Home = () => {
           handleClose={() => setModalVisible(false)}
         />
       </Modal>
-    </View>
+    </MotiView>
   );
 };
 
@@ -88,6 +94,7 @@ const styles = StyleSheet.create({
     width: "80%",
     height: 50,
     borderRadius: 8,
+    marginTop: 10,
     marginBottom: 18,
     backgroundColor: "#392de9",
     alignItems: "center",

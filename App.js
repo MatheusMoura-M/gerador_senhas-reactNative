@@ -1,11 +1,6 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { Routes } from "./src/routes";
-import { View } from "react-native";
+import "react-native-reanimated";
+import { Routes } from "@routes";
 
 export default function App() {
-  return (
-    <NavigationContainer>
-      <Routes />
-    </NavigationContainer>
-  );
+  return <Routes />;
 }
