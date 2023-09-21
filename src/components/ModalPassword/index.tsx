@@ -1,4 +1,3 @@
-import * as Clipboard from "expo-clipboard";
 import React from "react";
 import {
   Pressable,
@@ -10,7 +9,15 @@ import {
 import useStorage from "../../storage/useStorage";
 import { handleCopyBoard } from "../../utils";
 
-export default function ModalPassword({ password, handleClose }) {
+type PropsModalPassword = {
+  password: string;
+  handleClose: () => void;
+};
+
+export default function ModalPassword({
+  password,
+  handleClose,
+}: PropsModalPassword) {
   const { saveItem } = useStorage();
 
   const handleCopyPassword = async () => {
@@ -35,7 +42,7 @@ export default function ModalPassword({ password, handleClose }) {
 
         <View style={styles.buttonArea}>
           <TouchableOpacity style={styles.button} onPress={handleClose}>
-            <Text style={styles.buttonText}>Voltar</Text>
+            <Text>Voltar</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
