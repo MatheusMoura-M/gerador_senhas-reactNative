@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import Slider from "@react-native-community/slider";
 import { useState } from "react";
-import ModalPassword from "../../components/Modal";
 import { MotiView } from "moti";
+import ModalPassword from "../../components/ModalPassword";
 
 const charset =
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

@@ -85,12 +85,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
   },
   title: {
-    fontSize: 18,
+    fontSize: 22,
     color: "#fff",
     fontWeight: "bold",
   },
   content: {
     flex: 1,
-    // paddingHorizontal: 14,
   },
 });

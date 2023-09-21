@@ -8,12 +8,13 @@ import {
   View,
 } from "react-native";
 import useStorage from "../../hooks/useStorage";
+import { handleCopyBoard } from "../../utils";
 
 export default function ModalPassword({ password, handleClose }) {
   const { saveItem } = useStorage();
 
   const handleCopyPassword = async () => {
-    await Clipboard.setStringAsync(password);
+    handleCopyBoard(password);
     await saveItem("@pass", password);
 
     alert("Senha salva com sucesso!");
