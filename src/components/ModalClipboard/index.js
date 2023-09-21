@@ -3,13 +3,13 @@ import { StyleSheet, Text, View } from "react-native";
 
 export default function ModalClipboard({ modalVisible }) {
   return (
-    modalVisible && (
-      <View style={styles.container}>
-        <View style={styles.content}>
-          <Text style={styles.title}>Copiada!</Text>
-        </View>
+    <View
+      style={[styles.container, modalVisible ? styles.fadeIn : styles.fadeOut]}
+    >
+      <View style={styles.content}>
+        <Text style={styles.title}>Copiada!</Text>
       </View>
-    )
+    </View>
   );
 }
 
@@ -18,6 +18,18 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 13,
     top: -17,
+    opacity: 0,
+    transform: [{ scale: 0 }],
+    transitionProperty: "opacity transform",
+    transitionDuration: "0.5s",
+  },
+  fadeIn: {
+    transform: [{ scale: 1 }],
+    opacity: 1,
+  },
+  fadeOut: {
+    transform: [{ scale: 0 }],
+    opacity: 0,
   },
   content: {
     backgroundColor: "#fff",
