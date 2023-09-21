@@ -18,7 +18,7 @@ export default function PasswordItem({ data, removePassword, handleModal }) {
 
     setTimeout(() => {
       setModalVisible(false);
-    }, 500);
+    }, 700);
   };
 
   return (
