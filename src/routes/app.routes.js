@@ -11,7 +11,7 @@ export const AppRoutes = () => {
   return (
     <Navigator screenOptions={{ headerShown: false }}>
       <Screen
-        name="Home"
+        name="home"
         component={Home}
         options={{
           tabBarShowLabel: false,
@@ -32,7 +32,7 @@ export const AppRoutes = () => {
         }}
       />
       <Screen
-        name="Passwords"
+        name="passwords"
         component={Passwords}
         options={{
           tabBarShowLabel: false,
