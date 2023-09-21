@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import useStorage from "../../hooks/useStorage";
+import useStorage from "../../storage/useStorage";
 import { useIsFocused } from "@react-navigation/native";
 import PasswordItem from "./components/passwordItem";
 import { MotiView } from "moti";

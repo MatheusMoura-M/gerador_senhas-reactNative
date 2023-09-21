@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import useStorage from "../../hooks/useStorage";
+import useStorage from "../../storage/useStorage";
 import { handleCopyBoard } from "../../utils";
 
 export default function ModalPassword({ password, handleClose }) {
