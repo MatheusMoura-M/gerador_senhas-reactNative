@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import useStorage from "../../hooks/useStorage";
+import useStorage from "../../storage/useStorage";
 import { useIsFocused } from "@react-navigation/native";
 import PasswordItem from "./components/passwordItem";
 import { MotiView } from "moti";
 
 export const Passwords = () => {
-  const [listPasswords, setListPasswords] = useState([]);
+  const [listPasswords, setListPasswords] = useState<Array<string> | undefined>(
+    []
+  );
   const { getItem, removeItem } = useStorage();
   const focused = useIsFocused();
 
@@ -20,7 +22,7 @@ export const Passwords = () => {
     loadPasswords();
   }, [focused]);
 
-  const handleDeletePassword = async (item) => {
+  const handleDeletePassword = async (item: string) => {
     const passwords = await removeItem("@pass", item);
 
     setListPasswords(passwords);

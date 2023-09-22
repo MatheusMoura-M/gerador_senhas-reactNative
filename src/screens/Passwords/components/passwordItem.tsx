@@ -5,11 +5,16 @@ import { Ionicons, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
 
 import { AnimatePresence, MotiText, MotiView } from "moti";
 import ModalClipboard from "../../../components/ModalClipboard";
-import { handleCopyBoard } from "../../../utils";
+import { REGULAR, handleCopyBoard } from "../../../utils";
 
-export default function PasswordItem({ data, removePassword, handleModal }) {
-  const [showValue, setShowValue] = useState();
-  const [modalVisible, setModalVisible] = useState(false);
+type PropsPassword = {
+  data: string;
+  removePassword: () => void;
+};
+
+export default function PasswordItem({ data, removePassword }: PropsPassword) {
+  const [showValue, setShowValue] = useState<boolean>(false);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   const handleModalVisible = () => {
     handleCopyBoard(data);
@@ -93,6 +98,7 @@ const styles = StyleSheet.create({
   text: {
     color: "#fff",
     fontSize: 16,
+    fontFamily: REGULAR,
   },
   skeleton: {
     backgroundColor: "#dadada",

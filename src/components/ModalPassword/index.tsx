@@ -1,4 +1,3 @@
-import * as Clipboard from "expo-clipboard";
 import React from "react";
 import {
   Pressable,
@@ -7,10 +6,18 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import useStorage from "../../hooks/useStorage";
-import { handleCopyBoard } from "../../utils";
+import useStorage from "../../storage/useStorage";
+import { BOLD, REGULAR, handleCopyBoard } from "../../utils";
 
-export default function ModalPassword({ password, handleClose }) {
+type PropsModalPassword = {
+  password: string;
+  handleClose: () => void;
+};
+
+export default function ModalPassword({
+  password,
+  handleClose,
+}: PropsModalPassword) {
   const { saveItem } = useStorage();
 
   const handleCopyPassword = async () => {
@@ -35,7 +42,7 @@ export default function ModalPassword({ password, handleClose }) {
 
         <View style={styles.buttonArea}>
           <TouchableOpacity style={styles.button} onPress={handleClose}>
-            <Text style={styles.buttonText}>Voltar</Text>
+            <Text>Voltar</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -80,6 +87,7 @@ const styles = StyleSheet.create({
   text: {
     color: "#fff",
     textAlign: "center",
+    fontFamily: REGULAR,
   },
   buttonArea: {
     flexDirection: "row",
@@ -87,12 +95,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginTop: 8,
+    gap: 5,
   },
   button: {
     flex: 1,
     alignItems: "center",
     marginVertical: 14,
     padding: 8,
+    backgroundColor: "#07061320",
+    borderRadius: 8,
   },
   buttonSave: {
     backgroundColor: "#392de9",
@@ -100,6 +111,6 @@ const styles = StyleSheet.create({
   },
   buttonSaveText: {
     color: "#fff",
-    fontWeight: "bold",
+    fontFamily: BOLD,
   },
 });

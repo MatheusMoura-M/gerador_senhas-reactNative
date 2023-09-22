@@ -1,7 +1,10 @@
-import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function ModalClipboard({ modalVisible }) {
+type PropsModalClipboard = {
+  modalVisible: boolean;
+};
+
+export default function ModalClipboard({ modalVisible }: PropsModalClipboard) {
   return (
     <View
       style={[styles.container, modalVisible ? styles.fadeIn : styles.fadeOut]}
