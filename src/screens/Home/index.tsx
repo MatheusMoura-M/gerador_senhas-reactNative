@@ -10,14 +10,15 @@ import Slider from "@react-native-community/slider";
 import { useState } from "react";
 import { MotiView } from "moti";
 import ModalPassword from "../../components/ModalPassword";
+import { BOLD } from "@utils/index";
 
 const charset =
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 export const Home = () => {
-  const [size, setSize] = useState(10);
-  const [passwordValue, setPasswordValue] = useState("");
-  const [modalVisible, setModalVisible] = useState(false);
+  const [size, setSize] = useState<number>(10);
+  const [passwordValue, setPasswordValue] = useState<string>("");
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   const generatePassword = () => {
     let password = "";
@@ -51,7 +52,7 @@ export const Home = () => {
           minimumTrackTintColor={"#000"}
           thumbTintColor={"#392de9"}
           value={size}
-          onValueChange={(value) => setSize(value.toFixed(0))}
+          onValueChange={(value) => setSize(Number(value.toFixed(0)))}
         />
       </View>
 
@@ -103,5 +104,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#FFF",
     fontSize: 20,
+    fontFamily: BOLD,
   },
 });

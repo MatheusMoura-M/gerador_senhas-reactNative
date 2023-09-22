@@ -2,11 +2,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const useStorage = () => {
   // Buscar os items do storage
-  const getItem = async (key) => {
+  const getItem = async (key: string) => {
     try {
       const passwords = await AsyncStorage.getItem(key);
 
-      return JSON.parse(passwords) || [];
+      return JSON.parse(passwords!) || [];
     } catch (error) {
       console.log("ERROR AO BUSCAR", error);
       return [];
@@ -14,9 +14,9 @@ const useStorage = () => {
   };
 
   // Salvar um item no storage
-  const saveItem = async (key, value) => {
+  const saveItem = async (key: string, value: string) => {
     try {
-      let passwords = await getItem(key);
+      let passwords: string[] = await getItem(key);
 
       passwords.push(value);
 
@@ -27,9 +27,9 @@ const useStorage = () => {
   };
 
   // Remover um item do storage
-  const removeItem = async (key, item) => {
+  const removeItem = async (key: string, item: string) => {
     try {
-      let passwords = await getItem(key);
+      let passwords: string[] = await getItem(key);
 
       let updatedPasswords = passwords.filter((password) => {
         return password !== item;

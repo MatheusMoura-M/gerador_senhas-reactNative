@@ -7,7 +7,9 @@ import PasswordItem from "./components/passwordItem";
 import { MotiView } from "moti";
 
 export const Passwords = () => {
-  const [listPasswords, setListPasswords] = useState([]);
+  const [listPasswords, setListPasswords] = useState<Array<string> | undefined>(
+    []
+  );
   const { getItem, removeItem } = useStorage();
   const focused = useIsFocused();
 
@@ -20,7 +22,7 @@ export const Passwords = () => {
     loadPasswords();
   }, [focused]);
 
-  const handleDeletePassword = async (item) => {
+  const handleDeletePassword = async (item: string) => {
     const passwords = await removeItem("@pass", item);
 
     setListPasswords(passwords);

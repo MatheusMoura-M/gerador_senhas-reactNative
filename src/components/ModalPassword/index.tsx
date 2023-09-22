@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import useStorage from "../../storage/useStorage";
-import { handleCopyBoard } from "../../utils";
+import { BOLD, REGULAR, handleCopyBoard } from "../../utils";
 
 type PropsModalPassword = {
   password: string;
@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
   text: {
     color: "#fff",
     textAlign: "center",
+    fontFamily: REGULAR,
   },
   buttonArea: {
     flexDirection: "row",
@@ -94,12 +95,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginTop: 8,
+    gap: 5,
   },
   button: {
     flex: 1,
     alignItems: "center",
     marginVertical: 14,
     padding: 8,
+    backgroundColor: "#07061320",
+    borderRadius: 8,
   },
   buttonSave: {
     backgroundColor: "#392de9",
@@ -107,6 +111,6 @@ const styles = StyleSheet.create({
   },
   buttonSaveText: {
     color: "#fff",
-    fontWeight: "bold",
+    fontFamily: BOLD,
   },
 });
