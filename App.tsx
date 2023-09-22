@@ -6,6 +6,7 @@ import {
   NunitoSans_700Bold,
   useFonts,
 } from "@expo-google-fonts/nunito-sans";
+import { LoadIndicator } from "@components/Loading";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ NunitoSans_400Regular, NunitoSans_700Bold });
@@ -17,7 +18,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded && <Routes />}
+      {fontsLoaded ? <Routes /> : <LoadIndicator color="green" />}
     </>
   );
 }
